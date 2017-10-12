@@ -12,11 +12,11 @@ return [
         'server'   => 'localhost',
         'username' => 'root',
         'password' => 'root',
-        'charset'  => 'utf8'
+        'charset'  => 'utf8',
     ],
 
     'view' => [
-        'path' => __DIR__.'/../templates'
+        'path' => __DIR__.'/../views',
     ],
 
     'logger' => [
@@ -25,5 +25,5 @@ return [
         'max_files' => 30,
         'level' => Monolog\Logger::DEBUG,
     ],
-    
+
 ];
