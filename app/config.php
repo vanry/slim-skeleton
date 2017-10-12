@@ -15,13 +15,19 @@ return [
         'charset'  => 'utf8',
     ],
 
+    'cache' => [
+        'path' => __DIR__.'/../storage/cache',
+        'extension' => '',
+        'umask' => 0002,
+    ],
+
     'view' => [
         'path' => __DIR__.'/../views',
     ],
 
     'logger' => [
         'name' => 'slim',
-        'path' => __DIR__.'/../logs/app.log',
+        'path' => __DIR__.'/../storage/logs/app.log',
         'max_files' => 30,
         'level' => Monolog\Logger::DEBUG,
     ],

@@ -18,6 +18,7 @@
         "slim/slim": "^3.8",
         "slim/php-view": "^2.2",
         "catfan/medoo": "^1.2",
+        "doctrine/cache": "^1.6",
         "monolog/monolog": "^1.22"
     },
     "autoload": {

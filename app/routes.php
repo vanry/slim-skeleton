@@ -9,3 +9,15 @@ $app->get('/welcome/{name}', function ($request, $response, $args) {
 
     return $this->view->render($response, 'welcome.php', $args);
 });
+
+$app->get('/cache', function () {
+    $value = $this->cache->fetch('foo');
+
+    if ($value === false) {
+        $value = 'bars';
+
+        $this->cache->save('foo', $value);
+    }
+
+    return $value;
+});

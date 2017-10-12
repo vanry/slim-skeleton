@@ -6,6 +6,14 @@ $container['db'] = function ($c) {
     return new Medoo\Medoo($c->settings['database']);
 };
 
+$container['cache'] = function ($c) {
+    $settings = $c->settings['cache'];
+
+    return new Doctrine\Common\Cache\FilesystemCache(
+        $settings['path'],$settings['extension'], $settings['umask']
+    );
+};
+
 $container['view'] = function ($c) {
     return new Slim\Views\PhpRenderer($c->settings['view']['path']);
 };
