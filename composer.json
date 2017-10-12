@@ -4,6 +4,8 @@
     "keywords": ["microframework", "slim", "skeleton"],
     "homepage": "https://github.com/vanry/slim-skeleton",
     "license": "MIT",
+    "type": "project",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "vanry",
