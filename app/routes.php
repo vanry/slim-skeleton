@@ -7,17 +7,11 @@ $app->get('/', function () {
 $app->get('/welcome/{name}', function ($request, $response, $args) {
     $this->logger->info('Welcome', $args);
 
-    return $this->view->render($response, 'welcome.php', $args);
+    return view('welcome.php', $args);
 });
 
 $app->get('/cache', function () {
-    $value = $this->cache->fetch('foo');
-
-    if ($value === false) {
-        $value = 'bars';
-
-        $this->cache->save('foo', $value);
-    }
-
-    return $value;
+    return cache_remember('foo', 10, function () {
+        return 'bar';
+    });
 });

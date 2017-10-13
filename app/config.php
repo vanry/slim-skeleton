@@ -2,13 +2,13 @@
 
 return [
 
-    'displayErrorDetails' => true, // set to false in production
+    'displayErrorDetails' => true,
 
-    'addContentLengthHeader' => false, // Allow the web server to send the content-length header
+    'addContentLengthHeader' => false,
 
     'database' => [
         'database_type' => 'mysql',
-        'database_name' => 'wechat',
+        'database_name' => 'database',
         'server'   => 'localhost',
         'username' => 'root',
         'password' => 'root',

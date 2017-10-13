@@ -2,24 +2,24 @@
 
 $container = $app->getContainer();
 
-$container['db'] = function ($c) {
-    return new Medoo\Medoo($c->settings['database']);
+$container['db'] = function ($container) {
+    return new Medoo\Medoo($container->settings['database']);
 };
 
-$container['cache'] = function ($c) {
-    $settings = $c->settings['cache'];
+$container['cache'] = function ($container) {
+    $settings = $container->settings['cache'];
 
     return new Doctrine\Common\Cache\FilesystemCache(
-        $settings['path'],$settings['extension'], $settings['umask']
+        $settings['path'], $settings['extension'], $settings['umask']
     );
 };
 
-$container['view'] = function ($c) {
-    return new Slim\Views\PhpRenderer($c->settings['view']['path']);
+$container['view'] = function ($container) {
+    return new Slim\Views\PhpRenderer($container->settings['view']['path']);
 };
 
-$container['logger'] = function ($c) {
-    $settings = $c->settings['logger'];
+$container['logger'] = function ($container) {
+    $settings = $container->settings['logger'];
 
     $logger = new Monolog\Logger($settings['name']);
 
