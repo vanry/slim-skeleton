@@ -2,11 +2,11 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-$config['settings'] = require __DIR__.'/../app/config.php';
+$settings = require __DIR__.'/../app/settings.php';
 
-$app = new Slim\App($config);
+$app = new Slim\App(['settings' => $settings]);
 
-foreach (['services', 'routes', 'helpers'] as $filename) {
+foreach (['services', 'routes'] as $filename) {
     require __DIR__."/../app/{$filename}.php";
 }
 

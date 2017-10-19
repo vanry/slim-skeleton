@@ -4,14 +4,14 @@ $app->get('/', function () {
     return 'Slim 3 Skeleton';
 });
 
-$app->get('/welcome/{name}', function ($request, $response, $args) {
-    $this->logger->info('Welcome', $args);
+$app->get('/welcome', function ($request, $response, $arguments) {
+    $name = $this->cache->fetch('name');
 
-    return view('welcome.php', $args);
-});
+    if ($name === false) {
+        var_dump('Not from cache');
 
-$app->get('/cache', function () {
-    return cache_remember('foo', 10, function () {
-        return 'bar';
-    });
+        $this->cache->save('name', $name = 'Tom', 3);
+    }
+
+    return $this->view->render($response, 'welcome.php', ['name' => $name]);
 });

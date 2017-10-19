@@ -7,27 +7,9 @@ $container['db'] = function ($container) {
 };
 
 $container['cache'] = function ($container) {
-    $settings = $container->settings['cache'];
-
-    return new Doctrine\Common\Cache\FilesystemCache(
-        $settings['path'], $settings['extension'], $settings['umask']
-    );
+    return new Doctrine\Common\Cache\FilesystemCache($container->settings['cache']['path']);
 };
 
 $container['view'] = function ($container) {
     return new Slim\Views\PhpRenderer($container->settings['view']['path']);
-};
-
-$container['logger'] = function ($container) {
-    $settings = $container->settings['logger'];
-
-    $logger = new Monolog\Logger($settings['name']);
-
-    $handler = new Monolog\Handler\RotatingFileHandler(
-        $settings['path'], $settings['max_files'], $settings['level']
-    );
-
-    $logger->pushHandler($handler);
-
-    return $logger;
 };
