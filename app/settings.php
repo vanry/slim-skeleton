@@ -7,12 +7,9 @@ return [
     'addContentLengthHeader' => false,
 
     'database' => [
-        'database_type' => 'mysql',
-        'database_name' => 'database',
-        'server'   => 'localhost',
+        'connection_string' => "mysql:host=localhost;dbname=database",
         'username' => 'root',
         'password' => 'root',
-        'charset'  => 'utf8',
     ],
 
     'cache' => [
