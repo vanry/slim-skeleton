@@ -13,11 +13,11 @@ return [
     ],
 
     'cache' => [
-        'path' => __DIR__.'/../cache',
+        'path' => realpath(__DIR__.'/../cache'),
     ],
 
     'view' => [
-        'path' => __DIR__.'/views',
+        'path' => realpath(__DIR__.'/views'),
     ],
 
 ];

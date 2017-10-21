@@ -4,7 +4,7 @@ $app->get('/', function () {
     return 'Slim 3 Skeleton';
 });
 
-$app->get('/welcome', function ($request, $response, $arguments) {
+$app->get('/welcome', function ($request, $response) {
     $name = $this->cache->fetch('name');
 
     if ($name === false) {
