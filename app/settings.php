@@ -7,7 +7,9 @@ return [
     'addContentLengthHeader' => false,
 
     'database' => [
-        'connection_string' => "mysql:host=localhost;dbname=database",
+        'driver'   => 'mysql',
+        'host'     => 'localhost',
+        'database' => 'database',
         'username' => 'root',
         'password' => 'root',
     ],

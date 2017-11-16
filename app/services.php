@@ -2,6 +2,10 @@
 
 $container = $app->getContainer();
 
+$container['db'] = function ($container) {
+    return new Buki\Pdox($container->settings['database']);
+};
+
 $container['cache'] = function ($container) {
     return new Doctrine\Common\Cache\FilesystemCache($container->settings['cache']['path']);
 };

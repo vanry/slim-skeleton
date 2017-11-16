@@ -8,7 +8,7 @@ $app->get('/welcome', function ($request, $response) {
     $name = $this->cache->fetch('name');
 
     if ($name === false) {
-        var_dump('Not from cache');
+        var_dump('Data from database');
 
         $this->cache->save('name', $name = 'Tom', 3);
     }
